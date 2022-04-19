@@ -18,7 +18,7 @@ public class NPC extends Entity {
         super(EntityType.PLAYER);
 
         this.username = username;
-        this.skin = skin == null ? PlayerSkin.fromUuid(uuid.toString()) : skin;
+        this.skin = skin;
 
         setInstance(instance, pos);
     }
