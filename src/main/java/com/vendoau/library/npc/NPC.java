@@ -35,4 +35,12 @@ public class NPC extends Entity {
     public void removeFromTab(Player player) {
         player.sendPacket(PacketUtil.removePlayerInfoPacket(uuid));
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public PlayerSkin getSkin() {
+        return skin;
+    }
 }
