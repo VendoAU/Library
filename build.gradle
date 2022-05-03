@@ -14,3 +14,9 @@ repositories {
 dependencies {
     implementation "com.github.Minestom:Minestom:529_extension_improvement-SNAPSHOT"
 }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
