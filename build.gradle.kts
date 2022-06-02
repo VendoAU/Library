@@ -18,3 +18,10 @@ dependencies {
 
 java.sourceCompatibility = JavaVersion.VERSION_17
 java.targetCompatibility = JavaVersion.VERSION_17
+
+tasks {
+    wrapper {
+        gradleVersion = "7.4.1"
+        distributionType = Wrapper.DistributionType.ALL
+    }
+}
