@@ -1,6 +1,7 @@
 package com.vendoau.library.npc;
 
 import com.vendoau.library.util.PacketUtil;
+import com.vendoau.library.util.TeamUtil;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.EntityType;
@@ -21,6 +22,7 @@ public class NPC extends Entity {
         this.skin = skin;
 
         setInstance(instance, pos);
+        TeamUtil.NPC_TEAM.addMember(username);
     }
 
     public NPC(String username, Instance instance, Pos pos) {
