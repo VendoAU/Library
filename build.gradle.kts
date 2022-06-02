@@ -16,12 +16,23 @@ dependencies {
     compileOnly("com.github.Minestom:Minestom:529_extension_improvement-SNAPSHOT")
 }
 
-java.sourceCompatibility = JavaVersion.VERSION_17
-java.targetCompatibility = JavaVersion.VERSION_17
-
 tasks {
     wrapper {
         gradleVersion = "7.4.1"
         distributionType = Wrapper.DistributionType.ALL
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
     }
 }
