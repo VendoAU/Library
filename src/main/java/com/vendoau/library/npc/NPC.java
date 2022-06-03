@@ -2,11 +2,13 @@ package com.vendoau.library.npc;
 
 import com.vendoau.library.util.PacketUtil;
 import com.vendoau.library.util.TeamUtil;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
+import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.instance.Instance;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,11 +25,22 @@ public class NPC extends Entity {
 
         setInstance(instance, pos);
         TeamUtil.NPC_TEAM.addMember(username);
+
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerEntityInteractEvent.class, event -> {
+            final Player player = event.getPlayer();
+            final Entity target = event.getTarget();
+
+            if (target.getUuid().equals(uuid)) {
+                onInteract(player);
+            }
+        });
     }
 
     public NPC(String username, Instance instance, Pos pos) {
         this(username, null, instance, pos);
     }
+
+    protected void onInteract(Player player) {}
 
     public void sendToPlayer(Player player) {
         player.sendPacket(PacketUtil.addPlayerInfoPacket(uuid, username, skin));
