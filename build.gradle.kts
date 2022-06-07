@@ -15,6 +15,7 @@ repositories {
 dependencies {
     compileOnly("com.github.Minestom:Minestom:529_extension_improvement-SNAPSHOT")
     compileOnly("com.google.guava:guava:31.1-jre")
+    compileOnly("org.spongepowered:configurate-hocon:4.1.2")
 }
 
 tasks {
