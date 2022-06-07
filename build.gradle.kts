@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     compileOnly("com.github.Minestom:Minestom:529_extension_improvement-SNAPSHOT")
+    compileOnly("com.google.guava:guava:31.1-jre")
 }
 
 tasks {
